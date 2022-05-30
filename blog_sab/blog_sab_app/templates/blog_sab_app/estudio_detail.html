@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "blog_sab_app/index.html" %}
+{% load static %}
+{% block blog_sab_app_content %}
 
-</body>
-</html>
+<h2>Detalle del Estudio</h2>
+<hr></hr>
+<p><h3>universidad: {{ estudio.universidad }}</h3></p>
+<p><h4>anio_inicio: {{ estudio.anio_inicio }}</h4></p>
+<p><h3>titulo: {{ estudio.titulo }}</h3></p>
+<p><h4>finalizado: {{ estudio.finalizado }}</h4></p>
+<p><a class="btn2 btn-primary" href="{% url 'blog_sab_app:estudio-list' %}">Regresar a la lista de Estudios</a></p>
+{% endblock %}

@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends "blog_sab_app/index.html" %}
+{% load static %}
+{% block blog_sab_app_content %}
 
-</body>
-</html>
+<h2>Lista de Empleos</h2>
+<a class="card_custom" href="{% url 'blog_sab_app:estudio-add' %}">Crear nuevo Empleo</a>
+<hr></hr>
+<ul>
+    {% for empleo in empleo_list %}
+    <li>
+        {{empleo}}
+        (
+        <a href="{% url 'blog_sab_app:empleodetail' empleo.id %}">
+            <i class="fa fa-eye" style="color: rgb(0, 0, 255);"> </i>
+        </a>
+        |
+        <a href="{% url 'blog_sab_app:empleo-update' empleo.id %}">
+            <i class="fa fa-pencil" style="color: rgb(0, 0, 190);"> </i>
+        </a>
+        |
+        <a href="{% url 'blog_sab_app:empleo-delete' empleo.id %}">
+            <i class="fa fa-trash" style="color: rgb(0, 0, 100);"> </i>
+        </a>
+        )
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

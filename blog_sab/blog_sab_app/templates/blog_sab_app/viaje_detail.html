@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "blog_sab_app/index.html" %}
+{% load static %}
+{% block blog_sab_app_content %}
 
-</body>
-</html>
+<h2>Detalle del Viaje</h2>
+<hr></hr>
+<p><h3>destino: {{ viaje.destino }}</h3></p>
+<p><h4>nro_vuelo: {{ viaje.nro_vuelo }}</h4></p>
+<p><h3>fecha: {{ viaje.fecha }}</h3></p>
+<p><h3>notas: {{ viaje.notas }}</h3></p>
+<p><a class="btn2 btn-primary" href="{% url 'blog_sab_app:viaje-list' %}">Regresar a la lista de Viajes</a></p>
+{% endblock %}

@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "blog_sab_app/index.html" %}
+{% load static %}
+{% block blog_sab_app_content %}
 
-</body>
-</html>
+<h2>ALta de nuevo Viajes</h2>
+<hr></hr>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {{ viaje_form.as_table }}
+    </table>
+
+    <input type="submit" class="btn btn-primary" value="Crear viaje" />
+
+</form>
+
+{% endblock %}

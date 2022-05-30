@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends "blog_sab_app/index.html" %}
+{% load static %}
+{% block blog_sab_app_content %}
 
-</body>
-</html>
+<h2>Buscador de Estudios</h2>
+<hr></hr>
+
+<form action="/blog_sab_app/search" method="GET">
+    <div>
+        <input type="text" name="text_search" id="estudio_universidad" placeholder="Buscar por Universidad">
+        <input type="submit" value="Buscar">
+    </div>
+
+</form>
+
+<hr></hr>
+
+{% if estudios %}
+    <ul>
+        {% for estudio in estudios %}
+            <li>
+                Estudio: {{estudio.universidad}}
+                -- anio_inicio: {{estudio.anio_inicio}}
+                -- titulo: {{estudio.titulo}}
+                -- finalizado: {{estudio.finalizado}}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}
